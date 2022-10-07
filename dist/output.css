@@ -549,19 +549,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.h-1 {
-  height: 0.25rem;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.bg-red-500 {
+.bg-red-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }

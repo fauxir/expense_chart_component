@@ -7,8 +7,7 @@ function MainComp() {
 const [show, setShow] = useState(1);
 
     return ( 
-        <div>
-            main comp
+        <div className="bg-bridal-heath-500 w-32 h-32">
             {show ? <WeekInput /> : null}
             {!show ? <SpendingGraph /> : null}
             {!show ? <ThisMonth /> : null}
