@@ -3,7 +3,7 @@ import MyBalance from "./MyBalance";
 import { useState } from "react";
 
 function TopComp() {
-  const [show, setShow] = useState(1);
+  const [show, setShow] = useState(1); //needs to be linked to setShow from main comp
 
   return (
     <div className="bg-terracotta-500 h-20 w-80 mb-6 rounded-lg flex flex-row items-center justify-between">
