@@ -1,14 +1,15 @@
 import ThisWeekWage from "./ThisWeekWage";
 import MyBalance from "./MyBalance";
-import { useState } from "react";
+import { useSelector } from "react-redux" 
 
 function TopComp() {
-  const [show, setShow] = useState(1); //needs to be linked to setShow from main comp
+  
+  const see = useSelector(state => state.show.value)
 
   return (
     <div className="bg-terracotta-500 h-20 w-80 mb-6 rounded-lg flex flex-row items-center justify-between">
-      {!show ? <MyBalance /> : null}
-      {show ? <ThisWeekWage /> : null}
+      {see ? <MyBalance /> : null}
+      {!see ? <ThisWeekWage /> : null}
       <div className="h-full w-1/4 flex flex-row items-center justify-center pr-4">
         <div className=" flex flex-row items-center justify-center">
           <div className="w-9 h-9 rounded-full border-2 border-bridal-heath-500 relative left-2 z-10"></div>
