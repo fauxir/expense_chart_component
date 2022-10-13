@@ -1,5 +1,5 @@
 function WeekInput(props) {
-    const { placeholder, onChange, ...inputProps } = props;
+  const { placeholder, onChange, ...inputProps } = props;
 
   return (
     <div className="h-8 w-2/4 flex flex-col  justify-center mt-4">

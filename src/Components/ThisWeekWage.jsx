@@ -1,17 +1,13 @@
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { update } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense_chart_component/src/redux/totalMoneySlice.js"
+import { update } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense_chart_component/src/redux/totalMoneySlice.js";
 
 function ThisWeekWage() {
-
-    const [moneyInput, setMoneyInput] = useState("");
+  const [moneyInput, setMoneyInput] = useState("");
   const dispatch = useDispatch();
 
-  const balance = useSelector((state) => state.totMoney.value);
-
   const handleUpdate = (e) => {
-    dispatch(update({ moneyInput }));
-    console.log(moneyInput)
+    dispatch(update(moneyInput));
   };
 
   return (
@@ -20,10 +16,12 @@ function ThisWeekWage() {
         onChange={(e) => {
           setMoneyInput(e.target.value);
         }}
+        onBlur={() => {
+          handleUpdate();
+        }}
         className="bg-bridal-heath-500 leading-none rounded-sm shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
         placeholder="This week wage"
       ></input>
-      <div onClick={()=>{handleUpdate()}}>{balance}ceva</div>
     </div>
   );
 }
