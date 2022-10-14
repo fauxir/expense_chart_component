@@ -6,8 +6,9 @@ function ThisWeekWage() {
   const [moneyInput, setMoneyInput] = useState("");
   const dispatch = useDispatch();
 
-  const handleUpdate = (e) => {
+  const handleUpdate = (e) => {   //records money received per week in moneyInput
     dispatch(update(moneyInput));
+    console.log(moneyInput)
   };
 
   return (

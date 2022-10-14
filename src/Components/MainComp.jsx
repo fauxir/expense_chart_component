@@ -1,21 +1,29 @@
 import SpendingGraph from "./SpendingGraph";
 import ThisMonth from "./ThisMonth";
 import WeekInput from "./WeekInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { appear } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense_chart_component/src/redux/showSlice";
+import { update } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense_chart_component/src/redux/spentPerDaySlice.js";
 
 function MainComp() {
-  const [values, setValues] = useState({ });
-  const [daySpending, setDaySpending] = useState([])
+  const [values, setValues] = useState({});
   const see = useSelector((state) => state.show.value);
   const dispatch = useDispatch();
+  
+  useEffect(() => {   
+    setValues(values);  
+    console.log(values)
+  }, [values]);
+  
   const onChange = (e) => {
     setValues({ ...values, [e.target.placeholder]: e.target.value });
-    //setDaySpending({...daySpending, [e.target.id]: e.target.value })
-    console.log(values)
-    //console.log(daySpending)
+    
   };
+
+  const sendMoney = () => {
+    dispatch(update(values))
+  }
 
   const inputs = [
     { placeholder: "Spent Monday", id: 1 },
@@ -36,9 +44,11 @@ function MainComp() {
         : null}
       {see ? <SpendingGraph /> : null}
       {see ? <ThisMonth /> : null}
+      <input onBlur={onChange}></input>
       {!see ? (
         <div
-          onClick={() => dispatch(appear())}
+          onClick={() => {dispatch(appear())
+          dispatch(sendMoney())}}
           className="h-12 w-72 bg-terracotta-600  flex flex-row items-center justify-center rounded-md cursor-pointer mt-6 hover:bg-terracotta-500 hover:shadow-sambuca-300 hover:shadow-lg mb-8"
         >
           <div>Calculate</div>
