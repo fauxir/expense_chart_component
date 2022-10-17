@@ -8,7 +8,6 @@ function ThisWeekWage() {
 
   const handleUpdate = (e) => {   //records money received per week in moneyInput
     dispatch(update(moneyInput));
-    console.log(moneyInput)
   };
 
   return (

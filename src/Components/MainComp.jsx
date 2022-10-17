@@ -7,23 +7,24 @@ import { appear } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense
 import { update } from "/Users/Fauxir/Desktop/CSS-HTML-JS-REACT practice/expense_chart_component/src/redux/spentPerDaySlice.js";
 
 function MainComp() {
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState([]);
   const see = useSelector((state) => state.show.value);
   const dispatch = useDispatch();
-  
-  useEffect(() => {   
-    setValues(values);  
-    console.log(values)
+
+  useEffect(() => {
+    setValues(values);
   }, [values]);
-  
+
   const onChange = (e) => {
-    setValues({ ...values, [e.target.placeholder]: e.target.value });
-    
+    setValues([...values, e.target.value]);
   };
 
-  const sendMoney = () => {
-    dispatch(update(values))
-  }
+  const sendMoney = () => { //convert array of string to array of num 
+     const valuesToString = values.map(str => {
+      return Number(str);
+    });
+    dispatch(update(valuesToString));  //send value to reducer 
+  };
 
   const inputs = [
     { placeholder: "Spent Monday", id: 1 },
@@ -39,16 +40,17 @@ function MainComp() {
     <div className="bg-bridal-heath-500 w-80 h-fit rounded-lg flex flex-col items-center justify-between">
       {!see
         ? inputs.map((input) => (
-            <WeekInput key={input.id} {...input} onChange={onChange} />
+            <WeekInput key={input.id} {...input} onBlur={onChange} />
           ))
         : null}
       {see ? <SpendingGraph /> : null}
       {see ? <ThisMonth /> : null}
-      <input onBlur={onChange}></input>
       {!see ? (
         <div
-          onClick={() => {dispatch(appear())
-          dispatch(sendMoney())}}
+          onClick={() => {
+            dispatch(appear());
+            sendMoney();
+          }}
           className="h-12 w-72 bg-terracotta-600  flex flex-row items-center justify-center rounded-md cursor-pointer mt-6 hover:bg-terracotta-500 hover:shadow-sambuca-300 hover:shadow-lg mb-8"
         >
           <div>Calculate</div>

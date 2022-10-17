@@ -1,4 +1,6 @@
 function SpentPerDay() {
+
+  const b = 4;
   return (
     <div className="w-full flex items-end h-fit mt-6">
       <div className="flex flex-row items-end justify-around w-full h-fit">
