@@ -17,7 +17,9 @@ function ThisMonth() {
     return acummVariable + curValue;
   }, 0);
 
-  let calculatePercentage = Math.trunc(100 - (1 / (received / totalSpent)) * 100);
+  let calculatePercentage = Math.trunc(
+    100 - (1 / (received / totalSpent)) * 100
+  ); //calculate percentage
 
   return (
     <div className="h-fit w-full flex flex-col justify-center items-center mt-4">
