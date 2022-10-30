@@ -51,7 +51,7 @@ function MainComp() {
             dispatch(appear());
             sendMoney();
           }}
-          className="h-12 w-72 bg-terracotta-600  flex flex-row items-center justify-center rounded-md cursor-pointer mt-6 hover:bg-terracotta-500 hover:shadow-sambuca-300 hover:shadow-lg mb-8"
+          className="h-12 w-72 bg-terracotta-500  flex flex-row items-center justify-center rounded-md cursor-pointer mt-6 hover:bg-terracotta-500 hover:shadow-sambuca-300 hover:shadow-lg mb-8"
         >
           <div>Calculate</div>
         </div>

@@ -6,7 +6,8 @@ function Mybalance() {
 
     return ( 
         <div>
-            {balance}
+        <span className="text-sambuca-50 ml-3 text-sm">Total received</span>
+            <div className="text-sambuca-50 ml-3 font-bold text-xl">£{balance}</div>
         </div>
      );
 }
