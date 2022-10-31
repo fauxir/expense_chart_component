@@ -15,7 +15,7 @@ function SpentPerDay() {
 
   let days = ["mon", "tue", "wed", "thur", "fri", "sat", "sun"];
 
-  let style = "w-6 bg-terracotta-500 rounded-sm hover:bg-neptune-500 h-"; //style for graph bar
+  let style = "w-6 bg-terracotta-500 rounded-sm hover:bg-neptune-500 duration-100 h-"; //style for graph bar
 
   let id = [1, 2, 3, 4, 5, 6, 7];
 
